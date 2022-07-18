@@ -4,35 +4,32 @@ import br.com.bruna.desafio.dominio.Bootcamp;
 import br.com.bruna.desafio.dominio.Curso;
 import br.com.bruna.desafio.dominio.Dev;
 import br.com.bruna.desafio.dominio.Mentoria;
+import br.com.bruna.desafio.util.Constantes;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso();
-        curso1.setTitulo("curso Java");
-        curso1.setDescricao("descrição curso java");
-        curso1.setCargaHoraria(26);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("curso js");
-        curso2.setDescricao("descrição curso js");
-        curso2.setCargaHoraria(16);
+        Curso cursoJava =new Curso(26,
+                    Constantes.TITULO_CURSO_JAVA,
+                    Constantes.DESCRICAO_CURSO_JAVA);
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria de java");
-        mentoria.setData(LocalDate.now());
+        Curso cursoJs = new Curso(16,
+                    Constantes.TITULO_CURSO_JS,
+                    Constantes.DESCRICAO_CURSO_JS);
 
-      /*  System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+
+        Mentoria mentoria = new Mentoria(
+                Constantes.TITULO_MENTORIA,
+                Constantes.DESCRICAO_MENTORIA);
+
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
         bootcamp.setDescricao("Descrição Bootcamp Java Developer");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(cursoJava);
+        bootcamp.getConteudos().add(cursoJs);
         bootcamp.getConteudos().add(mentoria);
 
         Dev devBruna = new Dev();
