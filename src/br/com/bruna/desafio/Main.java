@@ -1,6 +1,8 @@
 package br.com.bruna.desafio;
 
+import br.com.bruna.desafio.dominio.Bootcamp;
 import br.com.bruna.desafio.dominio.Curso;
+import br.com.bruna.desafio.dominio.Dev;
 import br.com.bruna.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -22,8 +24,43 @@ public class Main {
         mentoria.setDescricao("descrição mentoria de java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
+      /*  System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria);
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devBruna = new Dev();
+        devBruna.setNome("Bruna");
+        devBruna.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Bruna: " + devBruna.getConteudosIncritos());
+
+        devBruna.progredir();
+        System.out.println("-");
+
+        System.out.println("Conteúdos Inscritos Bruna: " + devBruna.getConteudosIncritos());
+        System.out.println("Conteúdos Concluídos Bruna: " + devBruna.getConteudosConcluidos());
+        System.out.println("XP: " + devBruna.calcularTotalXp());
+
+        System.out.println("*-*-*-*-*-*-*-*-*");
+
+        Dev devAgatha = new Dev();
+        devAgatha.setNome("Agatha");
+        devAgatha.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Agatha: " + devAgatha.getConteudosIncritos());
+
+        devAgatha.progredir();
+        devAgatha.progredir();
+        System.out.println("-");
+
+        System.out.println("Conteúdos Inscritos Agatha: " + devAgatha.getConteudosIncritos());
+        System.out.println("Conteúdos Concluídos Agatha: " + devAgatha.getConteudosConcluidos());
+        System.out.println("XP: " + devAgatha.calcularTotalXp());
+
     }
 }
